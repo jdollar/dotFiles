@@ -36,6 +36,7 @@ Plugin 'kien/ctrlp.vim'
 "Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'jeetsukumaran/vim-filebeagle'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'valloric/youcompleteme'
 
 call vundle#end()
