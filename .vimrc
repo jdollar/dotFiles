@@ -37,6 +37,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'jeetsukumaran/vim-filebeagle'
 Plugin 'flazz/vim-colorschemes'
+"comment out the following line if in arch. Need to use aur setup or upstream installation
 Plugin 'valloric/youcompleteme'
 
 call vundle#end()
