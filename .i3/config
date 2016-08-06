@@ -33,7 +33,7 @@ new_window 1pixel
 workspace_layout stacked
 default_orientation vertical
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec urxvt 
 
 # pulseaudio-ctl key bindings
 bindcode 123 exec pulseaudio-ctl up
@@ -142,9 +142,10 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+bindsym $mod+Shift+m move workspace to output left
 #default workspace for monitors
 workspace 10 output HDMI-0
-exec --no-startup-id i3-msg 'workspace 1:term; exec terminator;'
+exec --no-startup-id i3-msg 'workspace 1:term; exec urxvt;'
 exec --no-startup-id i3-msg 'workspace 2:web; exec ckb; exec chromium;'
 
 # reload the configuration file
@@ -184,11 +185,17 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+#    i3bar_command /home/jdollar/.i3/lemonbar/lemonbar
         font Hack:monospace 8
         colors {
-            background #081C34 
+            background #3f3f3f
+            statusline #dcdccc
+            separator #dcdccc
+            inactive_workspace  #3f3f3f #3f3f3f #dcdccc
+            active_workspace #3f3f3f #222222 #dcdccc
+            focused_workspace #3f3f3f #222222 #dcdccc
         }
         position top
         status_command i3status
-        tray_output DVI-I-1
+        #tray_output DVI-I-1
 }
