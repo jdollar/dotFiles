@@ -1,11 +1,14 @@
 # Created by newuser for 5.0.2
 export TERMINFO=~/.terminfo
+export PS1='%n@%m:%~ $ % '
 
 typeset -A key
 
 key[home]="${terminfo[khome]}"
 key[end]="${terminfo[kend]}"
+key[delete]="${terminfo[kdch1]}"
 
-bindkey "\E[3~" delete-char
-bindkey "\E[1~" beginning-of-line
-bindkey "\E[4~" end-of-line
+bindkey $key[home] beginning-of-line
+bindkey $key[end] end-of-line
+bindkey $key[delete] delete-char
+
