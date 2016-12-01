@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/jdollar/repos/vagrant-server/ansible'
+let g:netrw_dirhist_2='/Users/jdollar/repos/vagrant-server/ansible/roles'
+let g:netrw_dirhist_3='/Users/jdollar/repos/ppconfig/config'
+let g:netrw_dirhist_4='/Users/jdollar/repos/ppconfig/config/vbimage'

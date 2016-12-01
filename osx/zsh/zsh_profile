@@ -1,0 +1,4 @@
+export HOMEBREW_GITHUB_API_TOKEN=9b02e5a724261ac6e0b7344f7e8472d193671a15
+
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh

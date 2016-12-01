@@ -1,0 +1,28 @@
+#!/bin/zsh
+
+migratemydb() {
+  echo "-----------------------------------------------------"
+  echo "opening database folder..."
+
+  cd '/Users/jdollar/repos/database'
+  echo "-----------------------------------------------------"
+  echo "git checkout master"
+  git checkout master
+  echo "-----------------------------------------------------"
+  echo "git pull origin"
+  git pull origin
+  echo "-----------------------------------------------------"
+  echo "Running the migrator..."
+  curl -G 'http://passportvm/apps/dbmigrator/index.php/api/curl_run' -d db_id=$1
+  echo "";
+  echo "-----------------------------------------------------"
+  echo "Showing results in browser..."
+  open '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome' 'http://passportvm/apps/dbmigrator/index.php/ui/results?db_id='$1
+  echo "-----------------------------------------------------"
+}
+
+migration_file_rename() { mv "$1" `(date "+%Y%m%d_%H%M%S_")`"$1"; }
+
+alias sql_filename='migration_file_rename'
+alias migratedb='migratemydb'
+alias migrateparking='migratemydb passportparkingstaging'

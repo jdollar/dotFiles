@@ -1,0 +1,8 @@
+source ~/.zsh_profile
+source ~/.zsh_aliases 
+
+export PATH=$PATH:~/.composer/vendor/bin
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/jdollar/.sdkman"
+[[ -s "/Users/jdollar/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jdollar/.sdkman/bin/sdkman-init.sh"
