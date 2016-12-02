@@ -1,0 +1,101 @@
+[
+  #Person Projects
+  {
+    title: 'pWChromeExtension'
+    group: 'Chrome'
+    paths: [
+      '/Users/jdollar/personalrepos/pWChromeExtension/'
+    ]
+    devMode: false
+  }
+  {
+    title: 'rescape'
+    group: 'atom'
+    paths: [
+      '/Users/jdollar/github/rescape/'
+    ]
+    devMode: false
+  }
+  {
+    title: 'ratpackTest'
+    group: 'education'
+    paths: [
+      '/Users/jdollar/personalrepos/ratpackTest/'
+    ]
+    devMode: false
+  }
+
+  #Passport Projects
+  {
+    title: 'mobilepayweb'
+    group: 'passport'
+    paths: [
+      '/Users/jdollar/repos/mobilepayweb/'
+    ]
+    devMode: false
+  }
+  {
+    title: 'mobile'
+    group: 'passport'
+    paths: [
+      '/Users/jdollar/repos/mobile/'
+    ]
+    devMode: false
+  }
+  {
+    title: 'ppconfig'
+    group: 'passport'
+    paths: [
+      '/Users/jdollar/repos/ppconfig/'
+    ]
+    devMode: false
+  }
+  {
+    title: 'vagrant-server'
+    group: 'passport'
+    paths: [
+      '/Users/jdollar/repos/vagrant-server/'
+    ]
+    devMode: false
+  }
+  {
+    title: 'opmgmt'
+    group: 'passport'
+    paths: [
+      '/Users/jdollar/repos/opmgmt/'
+    ]
+    devMode: false
+  }
+  {
+    title: 'shared'
+    group: 'passport'
+    paths: [
+      '/Users/jdollar/repos/shared/'
+    ]
+    devMode: false
+  }
+  {
+    title: 'database'
+    group: 'passport'
+    paths: [
+      '/Users/jdollar/repos/database/'
+    ]
+    devMode: false
+  }
+  {
+    title: 'superpassport'
+    group: 'passport'
+    paths: [
+      '/Users/jdollar/repos/superpassport/'
+    ]
+    devMode: false
+  }
+  {
+    title: 'eligibility'
+    group: 'passport'
+    paths: [
+      '/Users/jdollar/repos/eligibilitysystem/'
+    ]
+    devMode: false
+  }
+]
