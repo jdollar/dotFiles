@@ -1,7 +1,16 @@
 #!/bin/sh
 
-export DOTFILE_DIR=$HOME/personalrepos/dotFiles
-skippingLabel="\033[7mSkipping...\033[27m"
+DOTFILE_DIR=$HOME/personalrepos/dotFiles
+DOT_OSX_DIR=$DOTFILE_DIR/osx
+HOMEBREW_INSTALL_URL=https://raw.githubusercontent.com/Homebrew/install/master/install
+
+#labels
+SKIPPING_LABEL="\033[7mSkipping...\033[27m"
+HOMEBREW_LABEL="\033[30;43mhomebrew\033[0m"
+ZSH_LABEL="\033[30;106mzsh\033[0m"
+VIM_LABEL="\033[45;30mvim\033[0m"
+ATOM_LABEL="\033[42;39matom\033[0m"
+RUBY_LABEL="\033[39;41mRuby\033[0m"
 
 is_installed()
 {
@@ -14,39 +23,35 @@ is_installed()
 
 install_brew()
 {
-  local homebrewLabel="\033[30;43mhomebrew\033[0m"
-
   is_installed brew
   if [[ $? = 0 ]]; then
-    echo "Installing $homebrewLabel..."
+    echo "Installing $HOMEBREW_LABEL..."
 
     is_installed ruby
     if [[ $? = 0 ]]; then
-      local rubyLabel="\033[39;41mRuby\033[0m"
-      echo "$rubyLabel installation not found. Please install ruby so we can install homebrew."
+      echo "$RUBY_LABEL installation not found. Please install ruby so we can install homebrew."
       return 0;
     fi
     
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" 
+    /usr/bin/ruby -e "$(curl -fsSL $HOMEBREW_INSTALL_URL)" 
     return 1;
   else
-    echo "$homebrewLabel already installed. $skippingLabel"
+    echo "$HOMEBREW_LABEL already installed. $SKIPPING_LABEL"
     return 2;
   fi
 }
 
 install_zsh()
 {
-  local zshLabel="\033[30;106mzsh\033[0m"
   is_installed zsh
   if [[ $? = 0 ]]; then
     brew install zsh
-    ln -s $DOTFILE_DIR/osx/zsh/zshrc ~/.zshrc
-    ln -s $DOTFILE_DIR/osx/zsh/zsh_aliases ~/.zsh_aliases
-    ln -s $DOTFILE_DIR/osx/zsh/zsh_profile ~/.zsh_profile
+    ln -s $DOT_OSX_DIR/zsh/zshrc ~/.zshrc
+    ln -s $DOT_OSX_DIR/zsh/zsh_aliases ~/.zsh_aliases
+    ln -s $DOT_OSX_DIR/zsh/zsh_profile ~/.zsh_profile
     return 1;
   else
-    echo "$zshLabel already installed. $skippingLabel"
+    echo "$ZSH_LABEL already installed. $SKIPPING_LABEL"
     return 2;
   fi
 
@@ -55,17 +60,16 @@ install_zsh()
 
 install_vim()
 {
-  local vimLabel="\033[45;30mvim\033[0m"
   is_installed vim
   if [[ $? = 0 ]]; then
-    echo "installing $vimLabel..."
+    echo "installing $VIM_LABEL..."
     brew install vim
-    ln -s $DOTFILE_DIR/osx/vim/vim ~/.vim
-    ln -s $DOTFILE_DIR/osx/vim/vimrc ~/.vimrc
-    ln -s $DOTFILE_DIR/osx/vim/viminfo ~/.viminfo
+    ln -s $DOT_OSX_DIR/vim/vim ~/.vim
+    ln -s $DOT_OSX_DIR/vim/vimrc ~/.vimrc
+    ln -s $DOT_OSX_DIR/vim/viminfo ~/.viminfo
     return 1;
   else
-    echo "$vimLabel already installed. $skippingLabel"
+    echo "$VIM_LABEL already installed. $SKIPPING_LABEL"
     return 2;
   fi
 
@@ -74,15 +78,14 @@ install_vim()
 
 install_atom()
 {
-  local atomLabel="\033[42;39matom\033[0m"
   is_installed atom
   if [[ $? = 0 ]]; then
-    echo "installing $atomLabel..."
+    echo "installing $ATOM_LABEL..."
     brew cask install atom
-    ln -s $DOTFIRE_DIR/osx/atom ~/.$atomLabel
+    ln -s $DOTFIRE_DIR/osx/atom ~/.$ATOM_LABEL
     return 1; 
   else
-    echo "$atomLabel already installed. $skippingLabel"
+    echo "$ATOM_LABEL already installed. $SKIPPING_LABEL"
     return 2;
   fi
 
