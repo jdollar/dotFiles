@@ -21,6 +21,24 @@ is_installed()
     && ! -x /usr/local/Caskroom/$program ]] && return 0 || return 1
 }
 
+install_with_brew()
+{
+  local program=$1
+  local label=$2
+  is_installed $program
+  if [[ $? = 0 ]]; then
+    echo "installing $label..."
+    brew cask install $program
+    ln -s $DOT_OSX_DIR/$program ~/.$program
+    return 1; 
+  else
+    echo "$label already installed. $SKIPPING_LABEL"
+    return 2;
+  fi
+
+  return 0;
+}
+
 install_brew()
 {
   is_installed brew
@@ -43,16 +61,12 @@ install_brew()
 
 install_zsh()
 {
-  is_installed zsh
-  if [[ $? = 0 ]]; then
-    brew install zsh
+  install_with_brew zsh $ZSH_LABEL
+  if [[ $? = 1 ]]; then
     ln -s $DOT_OSX_DIR/zsh/zshrc ~/.zshrc
     ln -s $DOT_OSX_DIR/zsh/zsh_aliases ~/.zsh_aliases
     ln -s $DOT_OSX_DIR/zsh/zsh_profile ~/.zsh_profile
     return 1;
-  else
-    echo "$ZSH_LABEL already installed. $SKIPPING_LABEL"
-    return 2;
   fi
 
   return 0;
@@ -60,17 +74,12 @@ install_zsh()
 
 install_vim()
 {
-  is_installed vim
-  if [[ $? = 0 ]]; then
-    echo "installing $VIM_LABEL..."
-    brew install vim
+  install_with_brew vim $VIM_LABEL
+  if [[ $? = 1 ]]; then
     ln -s $DOT_OSX_DIR/vim/vim ~/.vim
     ln -s $DOT_OSX_DIR/vim/vimrc ~/.vimrc
     ln -s $DOT_OSX_DIR/vim/viminfo ~/.viminfo
     return 1;
-  else
-    echo "$VIM_LABEL already installed. $SKIPPING_LABEL"
-    return 2;
   fi
 
   return 0;
@@ -78,15 +87,10 @@ install_vim()
 
 install_atom()
 {
-  is_installed atom
-  if [[ $? = 0 ]]; then
-    echo "installing $ATOM_LABEL..."
-    brew cask install atom
-    ln -s $DOTFIRE_DIR/osx/atom ~/.$ATOM_LABEL
+  install_with_brew atom $ATOM_LABEL
+  if [[ $? = 1 ]]; then
+    ln -s $DOT_OSX_DIR/atom ~/.$ATOM_LABEL
     return 1; 
-  else
-    echo "$ATOM_LABEL already installed. $SKIPPING_LABEL"
-    return 2;
   fi
 
   return 0;
