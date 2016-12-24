@@ -23,4 +23,10 @@
 '.source.php':
   'Global Debug':
     'prefix': 'pplog'
-    'body': 'PPGlobal::logdata(LOG_DEBUG, $1);'
+    'body': 'PPGlobal::logdata(LOG_DEBUG, $1);$2'
+  'Readable Implode':
+    'prefix': 'ppri'
+    'body': 'PPGlobal::readableImplode($1);$2'
+  'Get Exception String':
+    'prefix': 'pgexs'
+    'body': 'PPGlobal::getExceptionString($1);$2'

@@ -26,3 +26,4 @@ migration_file_rename() { mv "$1" `(date "+%Y%m%d_%H%M%S_")`"$1"; }
 alias sql_filename='migration_file_rename'
 alias migratedb='migratemydb'
 alias migrateparking='migratemydb passportparkingstaging'
+alias ls='ls -G'

@@ -1,4 +1,6 @@
 "*":
+  "arduino-upload":
+    arduinoExecutablePath: "/Applications/Arduino.app/Contents/MacOS/Arduino"
   core:
     disabledPackages: [
       "language-javascript"
@@ -35,3 +37,5 @@
   minimap: {}
   welcome:
     showOnStartup: false
+  zentabs:
+    neverCloseUnsaved: true

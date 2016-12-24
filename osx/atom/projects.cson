@@ -1,5 +1,5 @@
 [
-  #Person Projects
+  #Personal Projects
   {
     title: 'pWChromeExtension'
     group: 'Chrome'
@@ -21,6 +21,24 @@
     group: 'education'
     paths: [
       '/Users/jdollar/personalrepos/ratpackTest/'
+    ]
+    devMode: false
+  }
+
+  #Arduino
+  {
+    title: 'arduinoLibs'
+    group: 'arduino-core'
+    paths: [
+      '/Applications/Arduino.app/Contents/Java/libraries/'
+    ]
+    devMode: false
+  }
+  {
+    title: 'snake'
+    group: 'arduino-snake'
+    paths: [
+      '/Users/jdollar/personalrepos/ardiuno/snake/'
     ]
     devMode: false
   }
@@ -97,5 +115,12 @@
       '/Users/jdollar/repos/eligibilitysystem/'
     ]
     devMode: false
+  }
+  {
+    title: 'giftUsersNewYear'
+    group: 'passport'
+    paths: [
+      '/Users/jdollar/repos/giftNewUsers/'
+    ]
   }
 ]

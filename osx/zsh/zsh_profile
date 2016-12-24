@@ -1,4 +1,13 @@
 export HOMEBREW_GITHUB_API_TOKEN=9b02e5a724261ac6e0b7344f7e8472d193671a15
 
 export WORKON_HOME=~/.virtualenvs
+export VAGRANT_CWD=~/repos/vagrant-server
+
+export ARDUINO_DIR=/Applications/Arduino.app/Contents/Java
+export ARDMK_DIR=/usr/local
+export AVR_TOOLS_DIR=/usr
+export MONITOR_PORT=/dev/ttyACM0
+export BOARD_TAG=mega2560
+
+
 source /usr/local/bin/virtualenvwrapper.sh
